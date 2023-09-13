@@ -1,0 +1,818 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    .slider-box {
+        margin: 1rem 7rem !important;
+        display:flex;
+    }
+
+    .slider-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--primary);
+        transform: scale(0.94);
+        animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+    }
+
+    .slide-img {
+        transform: scale(0.94);
+        animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+    }
+
+    .slider-content a {
+        width: fit-content;
+        padding: 5px 25px;
+        color: var(--primary);
+        text-decoration: none;
+        border: 1px solid var(--primary);
+    }
+
+    .why-uae-cont{
+        margin: 5rem 15rem;
+    }
+
+    .why-uae-content{
+        color:var(--primary);
+    }
+
+    .why-uae-cont h3{
+        padding-bottom:1.5rem;
+        margin-bottom:1.5rem;
+        border-bottom: 1px solid var(--primary);
+    }
+
+    .whu-uae-imgs {
+        margin: 0rem 7rem;
+    }
+
+    .img-wrapper {
+        overflow: hidden;
+        padding: 0 !important;
+        position: relative;
+        display: inline-block;
+    }
+
+    .image-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff; /* Change this to the desired color */
+    }
+
+        .image-text h4 {
+            text-transform: uppercase;
+            width: max-content;
+            margin: 0rem 4rem 1.5rem;
+        }
+
+    .how-btn {
+        margin-top: 1rem;
+        padding: 5px 25px;
+        color: white;
+        text-decoration: none;
+        border: 1px solid white;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out 0s;
+    }
+
+    .img-wrapper:hover .how-btn {
+        opacity: 1;
+        color: white;
+        transition: 0.5s;
+    }
+
+
+    .inner-img {
+        transition: 0.3s;
+        filter: brightness(60%);
+    }
+
+        .inner-img:hover {
+            transform: scale(1.2);
+        }
+
+    /* Other styling elements, that are not necessary for the example */
+
+    .img-wrapper {
+        display: inline-block;
+        box-sizing: border-box;
+    }
+
+    .main-content {
+        position: relative;
+    }
+
+        .main-content .owl-theme .custom-nav {
+            position: absolute;
+            top: 30%;
+            left: 0;
+            right: 0;
+        }
+
+            .main-content .owl-theme .custom-nav .owl-prev, .main-content .owl-theme .custom-nav .owl-next {
+                position: absolute;
+                height: 100px;
+                color: inherit;
+                background: none;
+                border: none;
+                z-index: 100;
+            }
+
+                .main-content .owl-theme .custom-nav .owl-prev i, .main-content .owl-theme .custom-nav .owl-next i {
+                    font-size: 2.5rem;
+                    color: #cecece;
+                }
+
+            .main-content .owl-theme .custom-nav .owl-prev {
+                left: 0;
+            }
+
+            .main-content .owl-theme .custom-nav .owl-next {
+                right: 0;
+            }
+
+        .main-content h3{
+            text-align: center;
+            padding-top: 1.5rem;
+            color: var(--primary)
+        }
+
+        .landscape-items {
+            margin: 10rem 0 5rem !important;
+            display: flex;
+        }
+
+    .landscapes-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--primary);
+    }
+
+    .landscapes-content a{
+        width: max-content;
+        padding: 5px 25px;
+        margin-top: 1.5rem;
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        text-decoration: none;
+    }
+
+    .testemonials {
+        padding: 5rem 5rem 3rem;
+        background-color: var(--primary);
+    }
+
+    .testimonials-carousal {
+        text-align: center;
+        color: white;
+    }
+    
+    .testimonials-carousal .item{
+        padding:0 1rem;
+    }
+
+    .testimonials-carousal i{
+        font-size: 6vh;
+        color: white;
+    }
+
+    .services-cont{
+        margin:5rem 15rem;
+        color: var(--primary);
+    }
+
+    .services-imgs .item {
+        overflow: hidden;
+        padding: 0 !important;
+        position: relative;
+    }
+
+        .services-imgs .item img {
+            filter: brightness(60%);
+        }
+
+    .ser-cont {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff; /* Change this to the desired color */
+    }
+
+    .ser-btn {
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff; /* Change this to the desired color */
+        width: auto;
+        transition: opacity 0.5s ease-in-out 0s;
+        padding: 7px 20px;
+        background-color: var(--primary);
+        opacity: 0;
+    }
+
+        .ser-btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+    .services-imgs .item:hover .ser-btn{
+        opacity:1;
+    }
+
+    .ser-cont h5 {
+        width: max-content;
+    }
+
+    .services .main-content .owl-theme .custom-nav {
+        top: 40%;
+    }
+
+    .faq-content{
+        margin: 3rem 0;
+    }
+
+    .accordion-button:focus {
+        z-index: 3;
+        border-color: white !important;
+        outline: 0;
+        box-shadow: none !important;
+    }
+
+    .accordion-button:not(.collapsed) {
+        color: white !important;
+        background-color: var(--primary) !important;
+        box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+    }
+
+    .accordion-button {
+        color: var(--primary) !important;
+    }
+
+    .faq-accordan{
+        margin-bottom:5rem;
+    }
+
+    @@keyframes fade-in {
+        100% {
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+
+    @@keyframes scale {
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @@media(max-width:1000px) {
+        .why-uae-cont {
+            margin: 5rem 3rem;
+        }
+
+        .services-cont {
+            margin: 5rem 3rem;
+        }
+    }
+
+    @@media(max-width:770px){
+        .slider-box {
+            flex-direction: column-reverse;
+            margin: 1rem 5rem !important;
+        }
+    }
+
+
+    @@media(max-width:500px) {
+        .slider-box {
+            margin: 1rem 1rem !important;
+        }
+
+        .slider-content {
+            padding-top: 1.5rem !important;
+        }
+
+        .whu-uae-imgs {
+            margin: 0rem 1rem;
+        }
+
+        .landscapes-content{
+            margin-bottom:2rem;
+        }
+    }
+</style>
+
+<div class="slider-box row">
+    <div class="slider-content col-lg-6 col-md-12 col-12">
+        <h1>M Production House is your trusted Filming & Photography Permit application partner in the UAE</h1>
+        <p>We efficiently coordinate on your behalf with relevant government authorities and private owners to obtain a filming or photography permit all across the UAE.</p>
+        <a href="/Home/Permit">APPLY FOR PERMIT</a>
+    </div>
+    <div class="slider-img col-lg-6 col-md-12 col-12">
+        <img class="slide-img" src="~/Content/Images/slider-img.jpg" />
+    </div>
+</div>
+
+<div class="why-uae-box" id="uae">
+    <div class="why-uae-content text-center container">
+        <div class="why-uae-cont">
+            <h3>What makes the UAE perfect for filming?</h3>
+            <p>
+                Dubai, Abu Dhabi, Sharjah, Ras Al Khaimah and Fujairah offers diverse backdrop. From traditional settings to bustling metropolis, miles of
+                unspoilt desert to rocky mountains, UAE is an ideal destination for your media project.
+            </p>
+        </div>
+    </div>
+    <div class="whu-uae-imgs">
+        <div class="row">
+            <div class="img-wrapper col-lg-4 col-md-6 col-12">
+                <img class="inner-img" src="~/Content/Images/wu1.jpg" />
+                <div class="image-text">
+                    <h4>Pristine Beaches</h4>
+                    <a class="how-btn" href="/Home/Permit">APPLY FOR PERMIT</a>
+                </div>
+            </div>
+            <div class="img-wrapper col-lg-4 col-md-6 col-12">
+                <img class="inner-img" src="~/Content/Images/wu2.jpg" />
+                <div class="image-text">
+                    <h4>Culture</h4>
+                    <a class="how-btn" href="/Home/Permit">APPLY FOR PERMIT</a>
+                </div>
+            </div>
+            <div class="img-wrapper col-lg-4 col-md-6 col-12">
+                <img class="inner-img" src="~/Content/Images/wu3.jpg" />
+                <div class="image-text">
+                    <h4>Outdoor Activities </h4>
+                    <a class="how-btn" href="/Home/Permit">APPLY FOR PERMIT</a>
+                </div>
+            </div>
+            <div class="img-wrapper col-lg-4 col-md-6 col-12">
+                <img class="inner-img" src="~/Content/Images/wu4.jpg" />
+                <div class="image-text">
+                    <h4>Manmade Wonders</h4>
+                    <a class="how-btn" href="/Home/Permit">APPLY FOR PERMIT</a>
+                </div>
+            </div>
+            <div class="img-wrapper col-lg-4 col-md-6 col-12">
+                <img class="inner-img" src="~/Content/Images/wu5.jpg" />
+                <div class="image-text">
+                    <h4>Beautiful Hotels </h4>
+                    <a class="how-btn" href="/Home/Permit">APPLY FOR PERMIT</a>
+                </div>
+            </div>
+            <div class="img-wrapper col-lg-4 col-md-6 col-12">
+                <img class="inner-img" src="~/Content/Images/wu6.jpg" />
+                <div class="image-text">
+                    <h4>Scenic Nature</h4>
+                    <a class="how-btn" href="/Home/Permit">APPLY FOR PERMIT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="landscapes-box container">
+    <div class="row landscape-items">
+        <div class="landscapes-content col-lg-6 col-md-6 col-12">
+            <h2>
+                It’s not all about the landscapes, there are plenty of other reasons filming in the UAE can be very advantageous.
+            </h2>
+            <a href="/Home/Permit">
+                APPLY FOR PERMIT
+            </a>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="main-content">
+                <div class="landscape-carousal owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="~/Content/Images/short-dist.jpg" />
+                        <h3>Short Distances</h3>
+                    </div>
+                    <div class="item">
+                        <img src="~/Content/Images/modern-infra.jpg" />
+                        <h3>Modern Infrastructure</h3>
+                    </div>
+                    <div class="item">
+                        <img src="~/Content/Images/cash reb.jpeg" />
+                        <h3>Cash Rebate</h3>
+                    </div>
+                    <div class="item">
+                        <img src="~/Content/Images/abundant-talent.jpg" />
+                        <h3>Abundant Talent</h3>
+                    </div>
+                    <div class="item">
+                        <img src="~/Content/Images/air-con.jpg" />
+                        <h3>Air Connectivity</h3>
+                    </div>
+                    <div class="item">
+                        <img src="~/Content/Images/365-days.jpg" />
+                        <h3>365 Days Sun</h3>
+                    </div>
+                </div>
+                <div class="owl-theme">
+                    <div class="owl-controls">
+                        <div class="custom-nav owl-nav"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="testemonials" id="testimonials">
+    <div class="testimonials-carousal owl-carousel owl-theme">
+        <div class="item">
+            <i class="bi bi-quote"></i>
+            <h2>
+                Michael kanes
+            </h2>
+            <p>
+                We recently had the experience to work with M production House
+                they are very quick and efficient with their tasks
+                made the whole process of our shoot convenient our entire team
+            </p>
+        </div>
+        <div class="item">
+            <i class="bi bi-quote"></i>
+            <h2>
+                Anna Miller
+            </h2>
+            <p>
+                A big thankyou to M Production house for making the entire process hassle free and easy
+                we had come down to dubai recently to shoot for one of our ad films and we received great support for all the permits and the documentation.
+            </p>
+        </div>
+        <div class="item">
+            <i class="bi bi-quote"></i>
+            <h2>
+                Jessica day
+            </h2>
+            <p>
+                I would really recommend M production house.
+                if youre in UAE for any kind of commercial shooting and you need to get you permissions
+                contact them. Very professional and proactive at their job.
+            </p>
+        </div>
+        <div class="item">
+            <i class="bi bi-quote"></i>
+            <h2>
+                Amber green
+            </h2>
+            <p>
+                I contacted them on very short notice for a  ad shoot, thanks to M production house for being very prompt and helping us out with all the licences and arrangements
+            </p>
+        </div>
+        <div class="item">
+            <i class="bi bi-quote"></i>
+            <h2>
+                Ehab hajjar
+            </h2>
+            <p>
+                We were shooting in Dubai for the first time. M Production House helped in sourcing the location getting the permits and the travel arrangements. would love to work again
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="services" id="services">
+    <div class="services-content container text-center">
+        <div class="services-cont">
+            <h2>Is filming or photography permit mandatory in the UAE?</h2>
+            <p>
+                As much as we’d like to get cracking with commercial filming or photography in public or private areas of the
+                UAE straight away, there are a few administrative hoops to jump through first. You’ll need to apply for official permits
+                before you can commence with your project. Failing to get the permits could result in heavy penalties, and disrupt your
+                filming and the local community.
+            </p>
+            <p>
+                UAE is made up of 7 states; Dubai, Abu Dhabi, Sharjah, Ras Al Khaimah, Fujairah, Ajman and Umm Al Quwain.
+                Each state has its own administrative authority, and the amount of paperwork and coordination hassle may seem daunting,
+                M Production House helps you coordinate with all relevant authorities in the most efficient way.
+            </p>
+        </div>
+    </div>
+    <div class="services-imgs">
+        <div class="main-content">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img src="~/Content/Images/govt permit.jpg" />
+                    <div class="ser-cont">
+                        <h5>GOVERNMENT PERMIT</h5>
+                        <p>Coordination and consent from private location owners.</p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/Home/Permit">APPLY FOR PERMIT</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/Content/Images/pvt location.jpg" />
+                    <div class="ser-cont">
+                        <h5>PRIVATE LOCATION PERMIT</h5>
+                        <p>Coordination and consent from private location owners.</p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/Home/Permit">APPLY FOR PERMIT</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/Content/Images/rta permit.jpg" />
+                    <div class="ser-cont">
+                        <h5>RTA PERMIT</h5>
+                        <p>Assistance with RTA Permit.</p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/Home/Permit">APPLY FOR PERMIT</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/Content/Images/location scouting.jpg" />
+                    <div class="ser-cont">
+                        <h5>LOCATION SCOUTING</h5>
+                        <p>Assistance with location reece.</p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/Home/Permit">APPLY FOR PERMIT</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/Content/Images/Wardrobe.jpg" />
+                    <div class="ser-cont">
+                        <h5>WARDROBE RENTAL</h5>
+                        <p>Budget friendly renting of garments With professional wardrobe stylists</p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/Home/Permit">APPLY FOR PERMIT</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/Content/Images/crew hiering.jpg" />
+                    <div class="ser-cont">
+                        <h5>CREW HIRE</h5>
+                        <p>Hiring of production crew, equipment and talent.</p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/Home/Permit">APPLY FOR PERMIT</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/Content/Images/catering.jpg" />
+                    <div class="ser-cont">
+                        <h5>CATERING</h5>
+                        <p>Arrange catering during the shoot.</p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/Home/Permit">APPLY FOR PERMIT</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/Content/Images/MEET.jpg" />
+                    <div class="ser-cont">
+                        <h5>MEET & GREET</h5>
+                        <p>Airport pick up and drop off.</p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/Home/Permit">APPLY FOR PERMIT</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/Content/Images/airport custom clearance.jpg" />
+                    <div class="ser-cont">
+                        <h5>AIRPORT CUSTOM CLEARANCE</h5>
+                        <p>Assistance with airport customs clearance for equipments.</p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/Home/Permit">APPLY FOR PERMIT</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/Content/Images/local sight Seeing.jpg" />
+                    <div class="ser-cont">
+                        <h5>LOCAL SIGHTSEEING</h5>
+                        <p>Arrange local sightseeing.</p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/Home/Permit">APPLY FOR PERMIT</a>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-theme">
+                <div class="owl-controls">
+                    <div class="custom-nav owl-nav"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="faq container" id="faq">
+    <div class="faq-content text-center">
+        <h2>FAQ's</h2>
+    </div>
+    <div class="faq-accordan">
+        <div class="accordion accordion-flush" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        DO I REQUIRE A PERMIT?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>
+                            In the UAE, it is required by law to obtain a filming and photography permit before you start shooting. Filming without a permit is unlawful in the UAE. A licenced media partner like FilmPermit can help you obtain one effortlessly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        WHY US?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>Dubai Film & TV Commission Committee, Abu Dhabi Film Committee and Media Council are the only competent authority for licensing all media and photography operations that take place in Dubai. Documents required and the procedures differ based on the venue you select. <strong>M Production House</strong> has the expertise in obtaining permits without hassle.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        WHAT INFORMATION IS REQUIRED TO OBTAIN A PERMIT?
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>Typically an application with information related to your filming objective is required. Passport copies of the crew are also required. A script and type of production (corporate, film, photography) are helpful in speeding up the permit process.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        TYPICALLY HOW LONG DOES IT TAKE TO OBTAIN A PERMIT?
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>It can take up to <strong>2-3 working days</strong> on average to obtain a permit. Timelines can differ based on location, information required, objectives, etc. In that case, your license partner will inform you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        WHAT’S THE FILMING PERMIT COST?
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>It varies based on the property that you intend to shoot. Government, private and semi-private properties have a different set of rules and associated cost.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSeven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        WHEN FILMING INDOORS, DO I STILL NEED PERMIT?
+                    </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>If you are using a public indoor facility, you need a permit, but if it is a private indoor area you may not. It's best to consult.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEight">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        DO CULTURE AND HERITAGE SITES NEED AN ADDITIONAL PERMIT?
+                    </button>
+                </h2>
+                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>Yes. When shooting at cultural and heritage sites you require an additional permit from the proper authorities.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingNine">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                        DO I REQUIRE APPROVAL FOR MY EQUIPMENT?
+                    </button>
+                </h2>
+                <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>You will need to declare and get approval from Customs for the shooting equipment that you wish to bring with you. Alternatively, we can assist in arranging for the equipment that you require to complete your shoot.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                        IF I AM AN INTERNATIONAL COMPANY WANTING TO SHOOT IN THE UAE, WHAT SHOULD I BE AWARE OF?
+                    </button>
+                </h2>
+                <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>For all international filmmakers and photographers, a permit is required before you arrive in the UAE, to avoid delay and cost overrun. You will also need to declare and get a permit for all your equipment. A copy of your passport is required to obtain a permit, and some other documents might be required. An approved licensing partner can help you navigate the challenges.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingEl">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEl" aria-expanded="false" aria-controls="collapseEl">
+                            DO I REQUIRE A WORK PERMIT IN ORDER TO SHOOT IN THE UAE?
+                        </button>
+                    </h2>
+                    <div id="collapseEl" class="accordion-collapse collapse" aria-labelledby="headingEl" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>No. A work permit is not required to film in the UAE.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.main-content .landscape-carousal').owlCarousel({
+        stagePadding: 50,
+        loop: true,
+        margin: 10,
+        autoplay: true,
+            autoplayTimeout: 3000,
+            smartSpeed: 2500,
+            animateOut: 'fadeOut',
+        nav: true,
+        navText: [
+            '<i class="bi bi-chevron-left" aria-hidden="true"></i>',
+            '<i class="bi bi-chevron-right" aria-hidden="true"></i>'
+        ],
+        navContainer: '.main-content .custom-nav',
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            }
+        }
+    });
+
+    $('.testimonials-carousal').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 3
+            }
+        }
+    });
+
+    $('.main-content .owl-carousel').owlCarousel({
+        stagePadding: 50,
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        nav: true,
+        navText: [
+            '<i class="bi bi-chevron-left" aria-hidden="true"></i>',
+            '<i class="bi bi-chevron-right" aria-hidden="true"></i>'
+        ],
+        navContainer: '.main-content .custom-nav',
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1300: {
+                items: 4
+            }
+        }
+    });
+</script>

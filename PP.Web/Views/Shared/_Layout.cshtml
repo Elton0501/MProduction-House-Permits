@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="~/Content/all.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-8 navbar-logo"><a href="/Home/Index"><img class="nav-logo" src="~/Content/Images/logo.svg" alt="logo" /></a></div>
+                <div class="col-md-8 col-4 navbar-menu">
+                    <nav>
+                        <ul>
+                            <li><a href="/Home/Index/#uae">Why UAE?</a></li>
+                            <li><a href="/Home/Index/#services">Our Services</a></li>
+                            <li><a href="/Home/Index/#testimonials">Testimonials</a></li>
+                            <li><a href="/Home/Index/#faq">FAQ's</a></li>
+                            <li class="last-fitem" style="margin-left:auto;"><a href="/Home/Permit">APPLY FOR PERMIT</a></li>
+                        </ul>
+                    </nav>
+                    <div class="navbar-icon">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="body">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="footer-logo">
+            <img style="width:10%" src="~/Content/Images/logo.svg" />
+        </div>
+        <div class="footer-links">
+            <div class="text-center"><a href="/Home/Index/#uae">Why UAE?</a></div>
+            <div class="text-center"><a href="/Home/Index/#services">Services</a></div>
+            <div class="text-center"><a href="/Home/Index/#testimonials">Testimonials</a></div>
+            <div class="text-center"><a href="/Home/Index/#faq">FAQ's'</a></div>
+        </div>
+        <div class="comp-info">
+            <h5><i class="bi bi-geo-alt-fill"></i> Sharjah Media City, Sharjah, UAE</h5>
+            <h5><i class="bi bi-envelope"></i> <a href="mailto:mproductionhouse23@gmail.com">mproductionhouse23@gmail.com</a></h5>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="https://wa.me/971565908840?text=Hey,%0aI got to know about M Production House through your website. I'd like to enquire more. Can we connect?" target="_blank"><i class="bi bi-whatsapp"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+
+        </div>
+    </footer>
+
+    <a href="https://wa.me/971565908840?text=Hey,%0aI got to know about M Production House through your website. I'd like to enquire more. Can we connect?" target="_blank" class="fixed-button light-btn all-pg-btn"><i class="bi bi-whatsapp"></i> Apply for Permit</a>
+
+    <script>
+        $('.navbar-icon').click(function () {
+            $(this).toggleClass("active");
+            $(".navbar-menu nav").toggleClass("active");
+        });
+    </script>
+</body>
+</html>

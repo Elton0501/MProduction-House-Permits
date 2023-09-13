@@ -1,0 +1,29 @@
+
+@font-face {
+    font-family: 'regular';
+    src: url('../fonts/raleway-regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'medium';
+    src: url('../fonts/raleway-medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'light';
+    src: url('../fonts/raleway-light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'bold';
+    src: url('../fonts/raleway-bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'italic';
+    src: url('../fonts/raleway-italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'semibold';
+    src: url('../fonts/raleway-semibold.ttf') format('truetype');
+}

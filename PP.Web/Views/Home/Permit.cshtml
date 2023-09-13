@@ -1,0 +1,473 @@
+﻿@{
+    ViewBag.Title = "Permit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .error {
+        color: red;
+    }
+
+    .select-box {
+        padding: 3rem;
+        display: inline-block;
+        background-color: #3a9c7d;
+        border-radius: 10px;
+        border: 1px solid #eee;
+        box-shadow: 3px 2px 5px #3a9c7d;
+    }
+
+    .formbold-form-wrapper h6 {
+        display: block;
+        font-size: 17px;
+        color: var(--text);
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .formbold-mb-5 {
+        margin-bottom: 20px;
+    }
+
+    .formbold-pt-3 {
+        padding-top: 12px;
+    }
+
+    .formbold-main-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px;
+    }
+
+    .formbold-form-wrapper {
+        margin: 0 auto;
+        max-width: 750px;
+        width: 100%;
+        background: white;
+        padding: 4rem;
+        border: 1px solid var(--primary);
+    }
+
+    .formbold-form-label {
+        display: block;
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--text);
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        margin-top: 3px;
+    }
+
+    .formbold-form-label-2 {
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .formbold-form-input {
+        width: 100%;
+        padding: 12px 0px;
+        border-radius: 0;
+        border: none;
+        background: white;
+        font-weight: 500;
+        font-size: 14px;
+        color: #6b7280;
+        outline: none;
+        resize: none;
+        border-bottom: 1px solid var(--primary);
+    }
+
+
+    .formbold-btn {
+        text-align: center;
+        font-size: 14px;
+        padding: 10px 45px;
+        border: none;
+        font-weight: 600;
+        background-color: #ffffff;
+        color: var(--text);
+        cursor: pointer;
+        text-transform: uppercase;
+        border: 1px solid var(--primary);
+    }
+
+        .formbold-btn:hover {
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+        }
+
+    .formbold--mx-3 {
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+
+    .formbold-px-3 {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .flex-wrap {
+        flex-wrap: wrap;
+    }
+
+    .w-full {
+        width: 100%;
+    }
+
+    .form-check-input:checked {
+        background-color: var(--primary);
+        border-color: var(--primmary) !important;
+    }
+
+    .form-check-input:focus {
+        box-shadow: none;
+    }
+
+    @@media (min-width: 540px) {
+        .sm\:w-half {
+            width: 50%;
+        }
+    }
+
+    @@media (max-width: 540px) {
+        .formbold-form-wrapper {
+            padding: 2rem;
+        }
+    }
+</style>
+
+<div class="formbold-main-wrapper">
+    <!-- Author: FormBold Team -->
+    <!-- Learn More: https://formbold.com -->
+    <div class="formbold-form-wrapper">
+        <h6>PERSONAL DETAILS</h6>
+        <br />
+        <form id="permitform">
+            <div class="formbold-mb-5">
+                @*<label for="name" class="formbold-form-label"> Name </label>*@
+                <input type="text"
+                       name="Name"
+                       id="Name"
+                       placeholder="Name"
+                       class="formbold-form-input" required />
+            </div>
+            <div class="formbold-mb-5">
+                @*<label for="email" class="formbold-form-label"> Email Address </label>*@
+                <input type="email"
+                       name="Email"
+                       id="Email"
+                       placeholder="E - Mail"
+                       class="formbold-form-input" required />
+            </div>
+            <div class="formbold-mb-5">
+                @*<label for="name" class="formbold-form-label"> Company Name </label>*@
+                <input type="text"
+                       name="CompanyName"
+                       id="CompanyName"
+                       placeholder="Company Name"
+                       class="formbold-form-input" required />
+            </div>
+            <div class="formbold-mb-5">
+                @*<label for="name" class="formbold-form-label"> Phone Number </label>*@
+                <input type="text"
+                       name="PhoneNumber"
+                       id="PhoneNumber"
+                       placeholder="Phone Number"
+                       class="formbold-form-input" required />
+            </div>
+            <div class="formbold-mb-5">
+                @*<label for="name" class="formbold-form-label"> WhatsApp Number </label>*@
+                <input type="text"
+                       name="WhatsAppNumber"
+                       id="WhatsAppNumber"
+                       placeholder="WhatsApp Number"
+                       class="formbold-form-input" required />
+            </div>
+            <br />
+            <br />
+            <h6>PERMIT DETAILS</h6>
+            <br />
+            <div class="formbold-mb-5">
+                <select name="Filmpermitservices" id="Filmpermitservices" class="formbold-form-input">
+                    <option value="" class="formbold-form-input">Film Permit Services</option>
+                    <option value="FILM PERMIT" class="formbold-form-input">FILM PERMIT</option>
+                    <option value="FILMING EQUIPMENT" class="formbold-form-input">FILMING EQUIPMENT</option>
+                    <option value="DRIVER ASSISTANCE" class="formbold-form-input">DRIVER ASSISTANCE</option>
+                    <option value="OTHER ASSISTANCE" class="formbold-form-input">OTHER ASSISTANCE</option>
+                </select>
+            </div>
+            <div class="formbold-mb-5">
+                <label for="subject" class="formbold-form-label"> Do You Require Assistance With Location Hunting</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="locationhunting" id="inlineRadio1" value="Yes" checked>
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="locationhunting" id="inlineRadio2" value="No">
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+            </div>
+            <div class="formbold-mb-5">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="GeneralPermit" name="GeneralPermit">
+                    <label class="formbold-form-label" for="inlineCheckbox1">General Permit</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="RTAPermit" name="RTAPermit">
+                    <label class="formbold-form-label" for="inlineCheckbox2">RTA Permit</label>
+                </div>
+            </div>
+
+            <div class="formbold-mb-5">
+                @*<label for="subject" class="formbold-form-label"> specify if you reqire any of these additional services </label>*@
+                <select name="additionalservices" id="additionalservices" class="formbold-form-input">
+                    <option value="" class="formbold-form-input"> Specify If You Reqire Any Of These Additional Services</option>
+                    <option value="ONLY FILMING PERMIT" class="formbold-form-input">ONLY FILMING PERMIT</option>
+                    <option value="EQUIPMENT RENTAL" class="formbold-form-input">EQUIPMENT RENTAL</option>
+                    <option value="CAR RENTAL" class="formbold-form-input">CAR RENTAL</option>
+                    <option value="HOTEL BOOKING" class="formbold-form-input">HOTEL BOOKING</option>
+                    <option value="AIRPORT PICK & DROP" class="formbold-form-input">AIRPORT PICK & DROP</option>
+                    <option value="AIRPORT PICK & DROP" class="formbold-form-input">AIRPORT PICK & DROP</option>
+                </select>
+            </div>
+            <div class="formbold-mb-5">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="Catering" name="Catering">
+                    <label class="formbold-form-label" for="inlineCheckbox1">Do You Want Catering ?</label>
+                </div>
+                <div class="formbold-mb-5 d-none" id="CateringCrewBox">
+                    @*<label for="name" class="formbold-form-label"> Name </label>*@
+                    <input type="text"
+                           name="CateringCrew"
+                           id="CateringCrew"
+                           placeholder="No. Of Crew For Catering"
+                           class="formbold-form-input" />
+                </div>
+            </div>
+            <div class="formbold-mb-5">
+                @*<label for="subject" class="formbold-form-label"> Type of Assignment </label>*@
+                <select name="Assignment" id="Assignment" class="formbold-form-input">
+                    <option value="" class="formbold-form-input">Type Of Assignment</option>
+                    <option value="VIDEO PRODUCTION" class="formbold-form-input">VIDEO PRODUCTION</option>
+                    <option value="COMMERCIAL PHOTOGRAPHY" class="formbold-form-input">COMMERCIAL PHOTOGRAPHY</option>
+                    <option value="MUSIC VIDEO" class="formbold-form-input">MUSIC VIDEO</option>
+                </select>
+            </div>
+            <br />
+            <br />
+            <h6>PROJECTS DETAILS</h6>
+            <br />
+            <div class="formbold-mb-5">
+                <label for="subject" class="formbold-form-label"> Filming Date </label>
+                <input type="date"
+                       name="Filmingdate"
+                       id="Filmingdate"
+                       placeholder="Filming date"
+                       class="formbold-form-input" />
+            </div>
+            <div class="formbold-mb-5">
+                @*<label for="subject" class="formbold-form-label"> FILMING CITY </label>*@
+                <select name="FILMINGCITY" id="FILMINGCITY" class="formbold-form-input">
+                    <option value="" class="formbold-form-input">Filming City</option>
+                    <option value="ABU DHABI" class="formbold-form-input">ABU DHABI</option>
+                    <option value="DUBAI" class="formbold-form-input">DUBAI</option>
+                    <option value="SHARJAH" class="formbold-form-input">SHARJAH</option>
+                    <option value="UMM AL QUWAIN" class="formbold-form-input">UMM AL QUWAIN</option>
+                    <option value="RAS AL KHAIMAH" class="formbold-form-input">RAS AL KHAIMAH</option>
+                    <option value="FUJAIRAH" class="formbold-form-input">FUJAIRAH</option>
+                    <option value="AJMAN" class="formbold-form-input">AJMAN</option>
+                </select>
+            </div>
+            <div class="formbold-mb-5">
+                @*<label for="name" class="formbold-form-label"> How many days? </label>*@
+                <input type="number"
+                       name="days"
+                       id="days"
+                       placeholder="How Many Days?"
+                       class="formbold-form-input" required />
+            </div>
+            <div class="formbold-mb-5">
+                @*<label for="name" class="formbold-form-label"> Size of the crew? </label>*@
+                <input type="number"
+                       name="crew"
+                       id="crew"
+                       placeholder="Size Of The Crew?"
+                       class="formbold-form-input" required />
+            </div>
+            <div class="formbold-mb-5">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="HotelBooking" name="HotelBooking">
+                    <label class="formbold-form-label" for="inlineCheckbox1">Do You Want Hotel Booking ?</label>
+                </div>
+            </div>
+            <div class="formbold-mb-5">
+                @*<label for="name" class="formbold-form-label"> Where do you want to shoot in the city? </label>*@
+                <input type="text"
+                       name="shoot"
+                       id="shoot"
+                       placeholder="Where Do You Want To Shoot In The City?"
+                       class="formbold-form-input" required />
+            </div>
+            <div class="formbold-mb-5">
+                <input type="text"
+                       name="remarks"
+                       id="remarks"
+                       placeholder="Any Other Remarks "
+                       class="formbold-form-input" />
+            </div>
+            <div class="text-center">
+                <button class="formbold-btn" type="button" id="permitformBtn">
+                    <label id="click-apply">Apply for Permit</label>
+                    <div class="spinner-border spinner-border-sm mx-1" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".spinner-border").hide();
+
+        $("#Catering").change(function () {
+            if ($(this).is(":checked")) {
+                $(this).prop("value", true);
+                $("#CateringCrewBox").removeClass("d-none");
+            } else {
+                $(this).prop("value", false);
+                $("#CateringCrewBox").addClass("d-none");
+            }
+        });
+        $("#RTAPermit").change(function () {
+            if ($(this).is(":checked")) {
+                $(this).prop("value", true);
+            } else {
+                $(this).prop("value", false);
+            }
+        });
+        $("#GeneralPermit").change(function () {
+            if ($(this).is(":checked")) {
+                $(this).prop("value", true);
+            } else {
+                $(this).prop("value", false);
+            }
+        });
+        $("#HotelBooking").change(function () {
+            if ($(this).is(":checked")) {
+                $(this).prop("value", true);
+            } else {
+                $(this).prop("value", false);
+            }
+        });
+    });
+    $('#permitform').validate({
+        rules: {
+            Name: {
+                required: true,
+            },
+            CompanyName: {
+                required: true,
+            },
+            Email: {
+                required: true,
+                email: true,
+            },
+            PhoneNumber: {
+                number: true,
+                required: true,
+                minlength: 10,
+                maxlength: 10,
+            },
+            WhatsAppNumber: {
+                number: true,
+                required: true,
+                minlength: 10,
+                maxlength: 10,
+            },
+            Filmpermitservices: {
+                required: true,
+            },
+            Assignment: {
+                required: true,
+            },
+            FILMINGCITY: {
+                required: true,
+            },
+            Filmingdate: {
+                required: true,
+            },
+        },
+        messages: {
+            Name: {
+                required: '* Name is required',
+            },
+            CompanyName: {
+                required: '* Company Name is required',
+            },
+            Email: {
+                required: '* Email required',
+                email: '* Enter your valid email'
+            },
+            PhoneNumber: {
+                number: '* Enter your valid contact number',
+                required: '* Contact Number is required',
+                minlength: '* Enter your valid contact number',
+                maxlength: '* Enter your valid contact number',
+            },
+            WhatsAppNumber: {
+                number: '* Enter your valid WhatsApp Number',
+                required: '* WhatsApp Number is required',
+                minlength: '* Enter your valid WhatsApp Number',
+                maxlength: '* Enter your valid WhatsApp Number',
+            },
+            Filmpermitservices: {
+                required: '* Film permit services is required',
+            },
+            Assignment: {
+                required: '* Select Assignment option',
+            },
+            FILMINGCITY: {
+                required: '* Select Filming City option',
+            },
+            Filmingdate: {
+                required: '* Select Filming Date',
+            },
+        }
+    });
+
+    $("#permitformBtn").click(function () {
+        if ($("#permitform").valid()) {
+            $("#permitformBtn").prop('disabled', true);
+            $(".spinner-border").show();
+            $("#click-apply").html("Applying");
+            $.ajax({
+                type: 'Post',
+                url: '@Url.Action("Permit", "Home")',
+                data: $("#permitform").serialize(),
+            })
+            .done(function (response) {
+                if (response == "true") {
+                    alert("Successfully Send");
+                    setTimeout(function () {// wait for 5 secs(2)
+                        window.location.href ="/Home/Permit"; // then reload the page.(3)
+                    }, 950);
+                    $("#permitformBtn").prop('disabled', false);
+                    $(".spinner-border").hide();
+                    $("#click-apply").html("Apply for Permit");
+                }
+            })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Sorry something went wrong!");
+                    $("#permitformBtn").prop('disabled', false);
+                    $(".spinner-border").hide();
+                    $("#click-apply").html("Apply for Permit");
+            });
+        }
+    });
+</script>
